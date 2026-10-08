@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://graph.facebook.com https://www.facebook.com; style-src 'self' 'unsafe-inline';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Poster</title>
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f5f7fb;margin:0;color:#172033}
+    .wrap{max-width:900px;margin:35px auto;padding:0 20px}
+    .card{background:white;border:1px solid #e2e6ef;border-radius:14px;padding:22px;margin-bottom:18px;box-shadow:0 4px 18px rgba(0,0,0,.05)}
+    h1{margin:0 0 8px} h2{margin-top:0;font-size:19px}
+    label{display:block;font-weight:600;margin:12px 0 6px}
+    input,textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cfd6e4;border-radius:9px;font:inherit}
+    textarea{min-height:150px;resize:vertical}
+    button{border:0;border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer;background:#1877f2;color:#fff;margin-top:12px}
+    button.secondary{background:#eef2f8;color:#172033}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .status{padding:12px;border-radius:9px;background:#f1f5f9;white-space:pre-wrap}
+    .small{font-size:13px;color:#5f6b7a}
+    @media(max-width:700px){.row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Facebook Poster</h1>
+    <div class="small">Windows desktop starter cho đăng bài Facebook Page qua Meta Graph API.</div>
+  </div>
+
+  <div class="card">
+    <h2>1. Kết nối Page</h2>
+    <div class="row">
+      <div>
+        <label>Page ID</label>
+        <input id="pageId" placeholder="Ví dụ: 123456789">
+      </div>
+      <div>
+        <label>Page Access Token</label>
+        <input id="token" type="password" placeholder="Dán Page Access Token">
+      </div>
+    </div>
+    <button id="save">Lưu token an toàn trên máy</button>
+    <p class="small">Token không được ghi vào mã nguồn. Bạn chịu trách nhiệm tạo token hợp lệ và có quyền với Page.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Soạn bài</h2>
+    <label>Nội dung</label>
+    <textarea id="message" placeholder="Nhập nội dung bài viết..."></textarea>
+    <label>Link đính kèm (không bắt buộc)</label>
+    <input id="link" placeholder="https://example.com">
+    <button id="post">Đăng lên Page</button>
+  </div>
+
+  <div class="card">
+    <h2>Trạng thái</h2>
+    <div id="status" class="status">Sẵn sàng.</div>
+  </div>
+</div>
+<script src="./renderer.js"></script>
+</body>
+</html>
